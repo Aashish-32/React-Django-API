@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css"; // Import the CSS file
 //edited
+//new branch
 
 function App() {
   const [companies, setCompanies] = useState([]);
