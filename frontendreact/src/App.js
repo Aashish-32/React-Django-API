@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css"; // Import the CSS file
+//edited
 
 function App() {
   const [companies, setCompanies] = useState([]);
