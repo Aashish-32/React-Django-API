@@ -2,31 +2,32 @@ import React, { useEffect, useState } from "react";
 import "./App.css"; // Import the CSS file
 
 
-function App() {
+function App()  {
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/v1/companies/")
-      .then((response) => response.json())
+      .then((response) => response.json()) //.then(response => response.json()) . when there is 1 argument no need for "()".
+     
       .then((data) => {
-        console.log("API Response:", data);
+        //console.log("API Response:", data);
         setCompanies(data.map((company) => ({ ...company, employees: [], loaded: false })));
       })
-      .catch((error) => console.log("API Error:", error));
-  }, []);
+      //.catch((error) => console.log("API Error:", error));
+  },[]); // last [] represents the dependencies if useEffect i.e. when it is excuted. if empty it executes on once
 
   const fetchEmployees = (companyId) => {
     fetch(`http://127.0.0.1:8000/api/v1/companies/${companyId}/employees/`)
-      .then((response) => response.json())
+      .then((respons) => respons.json())
       .then((data) => {
-        console.log("Employees Response:", data);
+        //console.log("Employees Response:", data);
         setCompanies((prevCompanies) =>
           prevCompanies.map((company) =>
             company.id === companyId ? { ...company, employees: data, loaded: true } : company
           )
         );
       })
-      .catch((error) => console.log("Employees Error:", error));
+      //.catch((error) => console.log("Employees Error:", error));
   };
 
   const showAdditionalInfo = (companyId, employeeId) => {
