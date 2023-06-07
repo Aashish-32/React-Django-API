@@ -1,1 +1,1 @@
-web: gunicorn 'companyapi.wsgi'
+web: gunicorn 'backend.companyapi.wsgi'
