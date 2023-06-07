@@ -1,1 +1,1 @@
-web: gunicorn -b 0.0.0.0:8000 backend.companyapi.wsgi:application --log-file -
+web: gunicorn backend.companyapi.wsgi:application --log-file -
