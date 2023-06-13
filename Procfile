@@ -1,1 +1,1 @@
-web: gunicorn backend.companyapi.wsgi:application --bind 0.0.0.0:$PORT
+web: waitress-serve --port=$PORT backend.companyapi.wsgi:application
