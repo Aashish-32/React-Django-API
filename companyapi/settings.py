@@ -86,10 +86,22 @@ WSGI_APPLICATION = "companyapi.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "railway",
+         "USER":"postgres",
+          "PASSWORD": "xRif9lSpUZ45R1VieQPB",
+           "HOST": "containers-us-west-53.railway.app" ,
+           "PORT":"6052",
+    }
+}
+"""
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+"""
 
 
 # Password validation
