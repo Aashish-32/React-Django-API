@@ -1,4 +1,5 @@
-#This is an example webappjj.io configuration for Django!
+"""
+ #This is an example webappjj.io configuration for Django!
 FROM vm/ubuntu:18.04
 
 # To note: Layerfiles create entire VMs, *not* containers!
@@ -41,3 +42,4 @@ RUN python3 manage.py makemigrations && python3 manage.py migrate
 # Start the server
 RUN BACKGROUND python3 manage.py runserver 127.0.0.1:8000
 EXPOSE WEBSITE localhost:8000
+"""
