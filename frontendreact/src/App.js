@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./App.css"; // Import the CSS file
+import ReactDOM from "react-dom";
+
+
 
 
 function App()  {
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/v1/companies/")
+    fetch("https://aashish32.pythonanywhere.com/api/v1/companies/")
       .then((response) => response.json()) //.then(response => response.json()) . when there is 1 argument no need for "()".
      
       .then((data) => {
@@ -17,7 +20,7 @@ function App()  {
   },[]); // last [] represents the dependencies if useEffect i.e. when it is excuted. if empty it executes on once
 
   const fetchEmployees = (companyId) => {
-    fetch(`http://127.0.0.1:8000/api/v1/companies/${companyId}/employees/`)
+    fetch(`https://aashish32.pythonanywhere.com/api/v1/companies/${companyId}/employees/`)
       .then((respons) => respons.json())
       .then((data) => {
         //console.log("Employees Response:", data);
@@ -48,7 +51,12 @@ function App()  {
   };
 
   return (
+    <div>
+
+    
     <div className="app-container">
+      <h1>Company Directory</h1>
+      < div className="companies">
       {companies.map((company) => (
         <div className="company-container" key={company.id}>
           <h2>{company.name}</h2>
@@ -81,6 +89,8 @@ function App()  {
           )}
         </div>
       ))}
+    </div>
+    </div>
     </div>
   );
 }
